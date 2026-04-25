@@ -1,34 +1,49 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { ExternalLink, Github, Eye } from "lucide-react"
-import Image from "next/image"
+import { useEffect, useRef, useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { ExternalLink, Github, Eye } from "lucide-react";
+import Image from "next/image";
 
 export default function Projects() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [activeCategory, setActiveCategory] = useState("All")
-  const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null)
-  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedImage, setSelectedImage] = useState<{
+    src: string;
+    title: string;
+  } | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
       { threshold: 0.1 },
-    )
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   const projects = [
     {
@@ -55,7 +70,8 @@ export default function Projects() {
       title: "CEP University Worship Service - Day 3",
       description:
         "Professional event poster design for CEP University of Kigali worship service featuring bold typography, vibrant orange color scheme, and clean layout with speaker information.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/day%203-NGhBRKMSUXq4TZEl7kCQUYsLCsufsp.png",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/day%203-NGhBRKMSUXq4TZEl7kCQUYsLCsufsp.png",
       tags: ["Graphic Design", "Branding", "Typography", "Adobe Suite"],
       category: "Graphic Design",
       link: null,
@@ -65,8 +81,29 @@ export default function Projects() {
       title: "CEP University Worship Service - Day 2",
       description:
         "Eye-catching worship service poster with dynamic red and brown tones, featuring professional photography and modern design elements for university event promotion.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/day2-cbYXKJ8MlF2fyZEdgU9nOLas2dge5L.png",
-      tags: ["Graphic Design", "Event Design", "Visual Identity", "Adobe Suite"],
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/day2-cbYXKJ8MlF2fyZEdgU9nOLas2dge5L.png",
+      tags: [
+        "Graphic Design",
+        "Event Design",
+        "Visual Identity",
+        "Adobe Suite",
+      ],
+      category: "Graphic Design",
+      link: null,
+      github: null,
+    },
+    {
+      title: "Seka Christian Academy - School Logo Design",
+      description:
+        "Custom-designed logo for Seka Christian Academy, created to reflect the school's values, identity, and educational mission. The design combines clean typography, meaningful symbolism, and a modern visual style to ensure strong brand recognition across digital and print platforms.",
+      image: "/sekachristianhills.png",
+      tags: [
+        "Graphic Design",
+        "Logo Design",
+        "Brand Identity",
+        "Adobe Illustrator",
+      ],
       category: "Graphic Design",
       link: null,
       github: null,
@@ -91,24 +128,38 @@ export default function Projects() {
     //   link: null,
     //   github: "https://github.com",
     // },
-  ]
+  ];
 
-  const categories = ["All", "Software Development", "Graphic Design", "System Analysis"]
+  const categories = [
+    "All",
+    "Software Development",
+    "Graphic Design",
+    "System Analysis",
+  ];
 
   const filteredProjects =
-    activeCategory === "All" ? projects : projects.filter((project) => project.category === activeCategory)
+    activeCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
 
   return (
     <section id="projects" ref={sectionRef} className="py-20 md:py-32">
       <div className="container mx-auto px-4">
-        <div className={`max-w-3xl mx-auto text-center mb-12 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-balance">Featured Projects</h2>
+        <div
+          className={`max-w-3xl mx-auto text-center mb-12 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+        >
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-balance">
+            Featured Projects
+          </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            A selection of my recent work showcasing software development, system design, and creative projects.
+            A selection of my recent work showcasing software development,
+            system design, and creative projects.
           </p>
         </div>
 
-        <div className={`flex flex-wrap justify-center gap-3 mb-12 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+        <div
+          className={`flex flex-wrap justify-center gap-3 mb-12 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+        >
           {categories.map((category) => (
             <Button
               key={category}
@@ -132,7 +183,12 @@ export default function Projects() {
             >
               <div
                 className="relative h-48 overflow-hidden bg-secondary cursor-pointer"
-                onClick={() => setSelectedImage({ src: project.image || "/placeholder.svg", title: project.title })}
+                onClick={() =>
+                  setSelectedImage({
+                    src: project.image || "/placeholder.svg",
+                    title: project.title,
+                  })
+                }
               >
                 <Image
                   src={project.image || "/placeholder.svg"}
@@ -156,7 +212,9 @@ export default function Projects() {
               </div>
               <CardHeader>
                 <CardTitle className="text-xl">{project.title}</CardTitle>
-                <CardDescription className="leading-relaxed">{project.description}</CardDescription>
+                <CardDescription className="leading-relaxed">
+                  {project.description}
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -171,16 +229,34 @@ export default function Projects() {
                 </div>
                 <div className="flex gap-2">
                   {project.link && (
-                    <Button size="sm" variant="outline" className="flex-1 bg-transparent" asChild>
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="flex-1 bg-transparent"
+                      asChild
+                    >
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Visit
                       </a>
                     </Button>
                   )}
                   {project.github && (
-                    <Button size="sm" variant="outline" className="flex-1 bg-transparent" asChild>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="flex-1 bg-transparent"
+                      asChild
+                    >
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="h-4 w-4 mr-2" />
                         Code
                       </a>
@@ -193,7 +269,10 @@ export default function Projects() {
         </div>
       </div>
 
-      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+      <Dialog
+        open={!!selectedImage}
+        onOpenChange={() => setSelectedImage(null)}
+      >
         <DialogContent className="max-w-4xl w-full">
           <DialogHeader>
             <DialogTitle>{selectedImage?.title}</DialogTitle>
@@ -211,5 +290,5 @@ export default function Projects() {
         </DialogContent>
       </Dialog>
     </section>
-  )
+  );
 }

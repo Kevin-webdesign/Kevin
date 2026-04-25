@@ -55,12 +55,9 @@ export default function Hero() {
               </div>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Innovative software developer with a rich academic background in Mathematics, Computer Science, and
-              Economics, complemented by practical experience in IT. Skilled in designing robust algorithms and applying
-              interdisciplinary knowledge to deliver efficient software solutions in dynamic environments.
-            </p>
-
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+  Software developer and graphic designer focused on building modern, scalable web applications and visually engaging digital experiences. Skilled in full-stack development with React, Node.js, PHP, and MySQL, I combine technical expertise with creative design to deliver user-friendly and impactful solutions.
+</p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="group" asChild>
                 <a href="#projects">

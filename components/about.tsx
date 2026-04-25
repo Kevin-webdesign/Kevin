@@ -54,7 +54,7 @@ export default function About() {
     { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
     { name: "Python", icon: SiPython, color: "#3776AB" },
     { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-    // { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+    { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
     { name: "PHP", icon: SiPhp, color: "#777BB4" },
     { name: "Git", icon: SiGit, color: "#F05032" },
     { name: "Illustrator", icon: SiAdobeillustrator, color: "#FF9A00" },

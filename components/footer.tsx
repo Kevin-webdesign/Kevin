@@ -53,7 +53,7 @@ export default function Footer() {
                 className="rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
                 asChild
               >
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/Kevin-webdesign" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <Github className="h-5 w-5" />
                 </a>
               </Button>
@@ -63,21 +63,21 @@ export default function Footer() {
                 className="rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
                 asChild
               >
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/uzamurera-kevin-681750326" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
                 </a>
               </Button>
             </div>
             <div className="text-xs text-muted-foreground">
               <p className="font-medium mb-1">Languages:</p>
-              <p>English, French, Kinyarwanda, Swahili</p>
+              <p>English, Kinyarwanda</p>
             </div>
           </div>
         </div>
 
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
           <p>© {currentYear} Uzamurera Kevin. All rights reserved.</p>
-          <p className="mt-1 text-xs">Built with Next.js, React, and Tailwind CSS</p>
+          {/* <p className="mt-1 text-xs">Built with Next.js, React, and Tailwind CSS</p> */}
         </div>
       </div>
     </footer>
